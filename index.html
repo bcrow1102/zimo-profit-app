@@ -434,6 +434,31 @@
             }
         }
 
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .header-nav__link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            padding: 0 14px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #6b7280;
+            background: #ffffff;
+            transition: all .2s ease;
+        }
+
+        .header-nav__link:hover {
+            color: #5c83ed;
+            background: rgba(92, 131, 237, .06);
+        }
+
         @media (max-width: 768px) {
             .price-guide__title {
                 font-size: 36px;
@@ -485,6 +510,40 @@
 
             .guide-cta__row .zimo-btn {
                 width: 100%;
+            }
+
+            .site-header .header-inner {
+                align-items: center;
+                gap: 10px;
+            }
+
+            .header-brand {
+                gap: 8px;
+                min-width: 0;
+            }
+
+            .header-brand__logo {
+                font-size: 1.15rem;
+                flex-shrink: 0;
+            }
+
+            .header-brand__tagline {
+                font-size: 0.72rem;
+                line-height: 1.15;
+                white-space: nowrap;
+            }
+
+            .header-nav {
+                gap: 8px;
+                flex-shrink: 0;
+            }
+
+            .header-nav__link {
+                height: 32px;
+                padding: 0 8px;
+                font-size: 12px;
+                white-space: nowrap;
+                word-break: keep-all;
             }
         }
 
@@ -568,6 +627,47 @@
         .guide-help-link--kakao {
             color: #111111;
         }
+
+        .header-nav button {
+            border: 0;
+            background: none;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .header-nav__link {
+            color: #6b7280;
+            transition: color .2s ease;
+        }
+
+        .header-nav__link:hover {
+            color: var(--guide-blue);
+        }
+
+        .header-drawer {
+            position: absolute;
+            top: 72px;
+            right: 80px;
+            width: 340px;
+            z-index: 30;
+            padding: 0;
+        }
+
+        .header-drawer__panel {
+            display: none;
+            padding: 14px 16px;
+            background: #ffffff;
+            border: 1px solid rgba(17, 24, 39, .08);
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #111111;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .08);
+        }
+
+        .header-drawer__panel.is-active {
+            display: block;
+        }
     </style>
 </head>
 
@@ -578,9 +678,31 @@
                 <span class="header-brand__logo">zimo</span>
                 <span class="header-brand__tagline">같은 집, 다른 조건</span>
             </a>
-            <nav class="header-nav" aria-label="Primary navigation"></nav>
+
+            <nav class="header-nav" aria-label="Primary navigation">
+                <button type="button" class="header-nav__link js-head-toggle" data-target="about">
+                    지모 소개
+                </button>
+
+                <button type="button" class="header-nav__link js-head-toggle" data-target="ad">
+                    광고 문의
+                </button>
+            </nav>
         </div>
     </header>
+
+    <div class="header-drawer" id="header-drawer">
+        <div class="header-drawer__panel" data-panel="about">
+            같은 집, 다른 조건.<br>
+            지모는 분양 현장의 광고 효율과<br>
+            실제 문의 전환을 높입니다.
+        </div>
+
+        <div class="header-drawer__panel" data-panel="ad">
+            유튜브 · 메타 · 네이버 광고 · 랜딩페이지까지<br>
+            현장 맞춤형으로 운영합니다.
+        </div>
+    </div>
 
     <main class="price-guide">
         <div class="price-guide__inner">
@@ -950,6 +1072,37 @@
             if (event.key === 'Enter') {
                 searchUnit();
             }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".js-head-toggle");
+            const panels = document.querySelectorAll(".header-drawer__panel");
+
+            function closeAll() {
+                panels.forEach(panel => panel.classList.remove("is-active"));
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const target = this.dataset.target;
+                    const panel = document.querySelector(`.header-drawer__panel[data-panel="${target}"]`);
+
+                    if (!panel) return;
+
+                    const opened = panel.classList.contains("is-active");
+                    closeAll();
+
+                    if (!opened) {
+                        panel.classList.add("is-active");
+                    }
+                });
+            });
+
+            document.addEventListener("click", function (e) {
+                if (e.target.closest(".header-nav") || e.target.closest(".header-drawer")) return;
+                closeAll();
+            });
         });
     </script>
 
