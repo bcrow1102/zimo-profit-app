@@ -655,7 +655,11 @@
             </a>
 
             <nav class="header-nav" aria-label="Primary navigation">
-                <a href="#" onclick="history.back(); return false;" class="guide-back-btn">← 돌아가기</a>
+                <a href="#"
+                    onclick="if(history.length>1){history.back();}else{location.href='https://zimo.co';} return false;"
+                    class="guide-back-btn">
+                    ← 돌아가기
+                </a>
             </nav>
 
         </div>
