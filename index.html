@@ -799,23 +799,6 @@
                         </p>
                     </article>
                 </div>
-
-                <section class="guide-cta">
-                    <h3 id="ctaHeadline">
-                        선택한 조건 그대로<br>
-                        상담 받을 수 있습니다
-                    </h3>
-                    <p id="ctaText">
-                        지금 보고 있는 세대 기준으로 전세가, 분양금액, 계약금 구조를 바로 상담받아보세요.
-                    </p>
-                    <div class="guide-cta__row">
-                        <a href="tel:01059361556" class="zimo-btn zimo-btn--primary">전화 상담</a>
-                        <a href="https://open.kakao.com/o/sAK9G6qi" class="zimo-btn zimo-btn--secondary" target="_blank"
-                            rel="noopener">
-                            카카오톡 상담
-                        </a>
-                    </div>
-                </section>
             </section>
         </div>
     </main>
@@ -843,7 +826,6 @@
         const balanceValue = document.getElementById('balanceValue');
         const moveInValue = document.getElementById('moveInValue');
         const returnPolicyText = document.getElementById('returnPolicyText');
-        const ctaText = document.getElementById('ctaText');
 
         fetch('data/unit-data.json')
             .then(res => {
@@ -939,7 +921,6 @@
             moveInValue.innerHTML = `${formatKrwMan(0)}<span class="guide-list__sub">안내 기준 금액</span>`;
 
             returnPolicyText.textContent = '해당 호실 상세 반환 구조는 상담 시 안내드립니다.';
-            ctaText.textContent = `${title} 기준 상세 조건은 상담으로 안내해드립니다.`;
 
             guideEmptyState.hidden = true;
             guideResult.hidden = false;
@@ -965,8 +946,6 @@
             moveInValue.innerHTML = `${formatKrwMan(item.realMoveInCost)}<span class="guide-list__sub">대출 제외 총 실투입 금액</span>`;
 
             returnPolicyText.innerHTML = '매입을 선택하지 않을 경우 반환 구조는<br>상담 시 안내드립니다.';
-            ctaText.textContent = `${item.dong}동 ${item.ho}호 기준으로 전세가, 분양금액, 계약금 구조를 바로 상담받아보세요.`;
-
             guideEmptyState.hidden = true;
             guideResult.hidden = false;
         }
