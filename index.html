@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>zimo — 동·호별 조건 확인</title>
-    <meta name="description" content="동·호별 공급가, 분양금액, 계약금과 실입주금을 바로 확인하세요." />
+    <meta name="description" content="동·호별 전세가, 분양금액, 계약금과 실입주금을 바로 확인하세요." />
     <meta name="theme-color" content="#FFFFFF" />
 
     <link rel="stylesheet" as="style" crossorigin
@@ -434,41 +434,14 @@
             }
         }
 
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .header-nav__link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 38px;
-            padding: 0 14px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 700;
-            color: #6b7280;
-            background: #ffffff;
-            transition: all .2s ease;
-        }
-
-        .header-nav__link:hover {
-            color: #5c83ed;
-            background: rgba(92, 131, 237, .06);
-        }
-
         @media (max-width: 768px) {
             .price-guide__title {
                 font-size: 36px;
             }
 
             .price-guide__desc {
-                font-size: 15px;
-                line-height: 1.8;
-                max-width: 100%;
-                word-break: keep-all;
+                font-size: 16px;
+                line-height: 1.7;
             }
 
             .price-guide__search {
@@ -513,43 +486,6 @@
             .guide-cta__row .zimo-btn {
                 width: 100%;
             }
-
-            .site-header .header-inner {
-                align-items: center;
-                gap: 10px;
-            }
-
-            .header-brand {
-                gap: 8px;
-                min-width: 0;
-            }
-
-            .header-brand__logo {
-                font-size: 1.15rem;
-                flex-shrink: 0;
-            }
-
-            .header-brand__tagline {
-                display: inline-block;
-                font-size: 11px;
-                line-height: 1;
-                white-space: nowrap;
-                word-break: keep-all;
-                letter-spacing: -0.04em;
-            }
-
-            .header-nav {
-                gap: 8px;
-                flex-shrink: 0;
-            }
-
-            .header-nav__link {
-                height: 32px;
-                padding: 0 8px;
-                font-size: 12px;
-                white-space: nowrap;
-                word-break: keep-all;
-            }
         }
 
         .contract-wrap {
@@ -589,89 +525,122 @@
             color: #111;
         }
 
-        .guide-help {
-            padding: 28px 24px;
-            text-align: center;
-        }
-
-        .guide-help-text {
-            margin: 0;
-            font-size: 15px;
-            font-weight: 500;
-            color: #6b7280;
-        }
-
-        .guide-help-links {
-            margin-top: 12px;
-            display: flex;
-            justify-content: center;
+        .guide-back-btn {
+            height: 44px;
+            padding: 0 16px;
+            border-radius: 12px;
+            display: inline-flex;
             align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .guide-help-arrow {
-            color: #5c83ed;
-            font-size: 15px;
-            font-weight: 800;
-        }
-
-        .guide-help-link {
-            color: #111111;
+            justify-content: center;
+            gap: 6px;
             font-size: 15px;
             font-weight: 700;
-            text-decoration: underline;
-            text-decoration-color: #5c83ed;
-            text-underline-offset: 3px;
-        }
-
-        .guide-help-link:hover {
-            opacity: 0.72;
-        }
-
-        .guide-help-link--kakao {
-            color: #111111;
-        }
-
-        .header-nav button {
-            border: 0;
-            background: none;
-            cursor: pointer;
-            font: inherit;
-        }
-
-        .header-nav__link {
-            color: #6b7280;
-            transition: color .2s ease;
-        }
-
-        .header-nav__link:hover {
-            color: var(--guide-blue);
-        }
-
-        .header-drawer {
-            position: absolute;
-            top: 72px;
-            right: 80px;
-            width: 340px;
-            z-index: 30;
-            padding: 0;
-        }
-
-        .header-drawer__panel {
-            display: none;
-            padding: 14px 16px;
-            background: #ffffff;
+            color: #111;
+            background: #f8f9fb;
             border: 1px solid rgba(17, 24, 39, .08);
-            border-radius: 14px;
-            font-size: 13px;
-            line-height: 1.6;
-            color: #111111;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, .08);
+            white-space: nowrap;
+            width: auto;
+            min-width: auto;
+            line-height: 1;
+            transition: all .2s ease;
         }
 
-        .header-drawer__panel.is-active {
-            display: block;
+        .guide-back-btn:hover {
+            background: #5c83ed;
+            color: #fff;
+            border-color: #5c83ed;
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                min-height: 64px;
+                gap: 10px;
+                flex-wrap: nowrap !important;
+                justify-content: space-between;
+            }
+
+            .header-brand {
+                min-width: 0;
+                flex: 0 1 auto;
+                gap: 0;
+                overflow: visible;
+            }
+
+            .header-brand__logo {
+                font-size: 1.25rem;
+                flex-shrink: 0;
+            }
+
+            .header-brand__tagline {
+                display: none !important;
+            }
+
+            .header-nav {
+                display: flex !important;
+                flex: 0 0 auto;
+                gap: 0;
+            }
+
+            .guide-back-btn {
+                height: 38px;
+                padding: 0 10px;
+                font-size: 13px;
+                border-radius: 10px;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .price-guide {
+                padding: 84px 16px 44px;
+            }
+
+            #unitDesc,
+            #realCashDesc {
+                display: block;
+                line-height: 1.6;
+                word-break: keep-all;
+            }
+
+            .guide-note {
+                padding: 22px 18px;
+            }
+
+            .guide-note h3 {
+                font-size: 26px;
+                line-height: 1.28;
+                letter-spacing: -0.03em;
+                word-break: keep-all;
+            }
+
+            .guide-note p {
+                font-size: 16px;
+                line-height: 1.7;
+                word-break: keep-all;
+            }
+
+            .guide-cta {
+                padding: 28px 18px;
+            }
+
+            .guide-cta h3 {
+                font-size: 26px;
+                line-height: 1.28;
+                letter-spacing: -0.03em;
+                word-break: keep-all;
+            }
+
+            #ctaHeadline {
+                line-height: 1.3;
+            }
+
+            .guide-cta p {
+                font-size: 16px;
+                line-height: 1.7;
+                text-align: left;
+                max-width: none;
+                margin: 14px 0 0;
+                word-break: keep-all;
+            }
         }
     </style>
 </head>
@@ -679,35 +648,18 @@
 <body>
     <header class="site-header" aria-label="Site header">
         <div class="header-inner container">
+
             <a href="index.html" class="header-brand">
                 <span class="header-brand__logo">zimo</span>
                 <span class="header-brand__tagline">같은 집, 다른 조건</span>
             </a>
 
             <nav class="header-nav" aria-label="Primary navigation">
-                <button type="button" class="header-nav__link js-head-toggle" data-target="about">
-                    지모 소개
-                </button>
-
-                <button type="button" class="header-nav__link js-head-toggle" data-target="ad">
-                    광고 문의
-                </button>
+                <a href="index.html" class="guide-back-btn">← 돌아가기</a>
             </nav>
+
         </div>
     </header>
-
-    <div class="header-drawer" id="header-drawer">
-        <div class="header-drawer__panel" data-panel="about">
-            같은 집, 다른 조건.<br>
-            지모는 분양 현장의 광고 효율과<br>
-            실제 문의 전환을 높입니다.
-        </div>
-
-        <div class="header-drawer__panel" data-panel="ad">
-            유튜브 · 메타 · 네이버 광고 · 랜딩페이지까지<br>
-            현장 맞춤형으로 운영합니다.
-        </div>
-    </div>
 
     <main class="price-guide">
         <div class="price-guide__inner">
@@ -715,7 +667,10 @@
                 <span class="price-guide__eyebrow">zimo price guide</span>
                 <h1 class="price-guide__title">
                     동 · 호수를 선택하면<br />
-                    <span>조건을 바로<br>확인할 수 있습니다</span>
+                    <span>
+                        조건을 바로 확인할 수<br>
+                        있습니다
+                    </span>
                 </h1>
                 <p class="price-guide__desc">
                     안내드리는 내용은 현재 기준 참고 자료로, 실제 분양금액·계약조건·잔여세대·혜택은 현장 상담 및 진행 시점에 따라 일부 달라질 수 있습니다.
@@ -738,10 +693,9 @@
                 <button type="button" class="guide-submit" id="guideSearchBtn">조건 확인하기</button>
             </section>
 
-
             <section class="guide-empty" id="guideEmptyState">
                 <strong>동과 호수를 선택하면</strong><br />
-                해당 세대의 공급가, 분양금액, 계약금 1차·2차, 중도금 대출, 잔금, 실입주금이 표시됩니다.
+                해당 세대의 전세가, 분양금액, 계약금 1차·2차, 중도금 대출, 잔금, 실입주금이 표시됩니다.
             </section>
 
             <section class="guide-result" id="guideResult" hidden>
@@ -750,7 +704,7 @@
                         <span class="guide-badge">선택 세대 기준</span>
                         <h2 class="guide-unit" id="unitTitle">101동 1203호 · 84A</h2>
                         <p class="guide-unit-sub" id="unitDesc">
-                            지금 거주 기준인 공급가와 10년 후 매입 결정 시 기준이 되는 분양금액을 함께 확인할 수 있습니다.
+                            지금 거주 기준인 전세가와 10년 후 매입 결정 시 기준이 되는 분양금액을 함께 확인할 수 있습니다.
                         </p>
                     </div>
                     <div class="guide-hero-card__right">
@@ -817,7 +771,7 @@
                                 <span class="guide-list__value" id="balanceValue">1억 600만 원</span>
                             </li>
                             <li>
-                                <span class="guide-list__name">실입주금</span>
+                                <span class="guide-list__name">총 자기자본</span>
                                 <span class="guide-list__value" id="moveInValue">3,000만 원<span
                                         class="guide-list__sub">현재 기준 실제 준비 금액</span></span>
                             </li>
@@ -829,30 +783,34 @@
                     <article class="guide-note">
                         <h3>10년 후 매입도 바로 판단</h3>
                         <p>
-                            선택한 세대의 분양금액은 10년 후 매입 여부를 결정할 때 기준이 되는 금액입니다.<br>
-                            지금 거주 기준과 나중 매입 기준을 한 화면에서 같이 확인할 수 있습니다. </p>
+                            선택한 세대의 분양금액은<br>
+                            10년 후 매입 여부를 판단하는 기준 금액입니다.<br><br>
+                            지금 거주 기준과 나중 매입 기준을<br>
+                            한 화면에서 확인할 수 있습니다.
+                        </p>
                     </article>
                     <article class="guide-note">
                         <h3>미매입 시 반환 구조 확인</h3>
                         <p id="returnPolicyText">
-                            매입을 선택하지 않을 경우에는 공급가액과 년차별 상승 보증금 기준으로 반환 구조를 확인하게 됩니다. 자세한 내용은 상담 시 안내해드립니다.
+                            매입을 선택하지 않을 경우 반환 구조는<br>
+                            상담 시 안내드립니다.
                         </p>
                     </article>
                 </div>
 
-                <section class="guide-cta guide-help">
-                    <p class="guide-help-text">앱 사용 중 문의사항이 있으시면</p>
-
-                    <div class="guide-help-links">
-                        <span class="guide-help-arrow">ㄴ</span>
-
-                        <a href="tel:01059361556" class="guide-help-link">
-                            전화하기
-                        </a>
-
-                        <a href="https://open.kakao.com/o/sRbMa6qi" target="_blank" rel="noopener"
-                            class="guide-help-link guide-help-link--kakao">
-                            카톡문의
+                <section class="guide-cta">
+                    <h3 id="ctaHeadline">
+                        선택한 조건 그대로<br>
+                        상담 받을 수 있습니다
+                    </h3>
+                    <p id="ctaText">
+                        지금 보고 있는 세대 기준으로 전세가, 분양금액, 계약금 구조를 바로 상담받아보세요.
+                    </p>
+                    <div class="guide-cta__row">
+                        <a href="tel:01059361556" class="zimo-btn zimo-btn--primary">전화 상담</a>
+                        <a href="https://open.kakao.com/o/sAK9G6qi" class="zimo-btn zimo-btn--secondary" target="_blank"
+                            rel="noopener">
+                            카카오톡 상담
                         </a>
                     </div>
                 </section>
@@ -883,7 +841,7 @@
         const balanceValue = document.getElementById('balanceValue');
         const moveInValue = document.getElementById('moveInValue');
         const returnPolicyText = document.getElementById('returnPolicyText');
-
+        const ctaText = document.getElementById('ctaText');
 
         fetch('data/unit-data.json')
             .then(res => {
@@ -979,6 +937,7 @@
             moveInValue.innerHTML = `${formatKrwMan(0)}<span class="guide-list__sub">안내 기준 금액</span>`;
 
             returnPolicyText.textContent = '해당 호실 상세 반환 구조는 상담 시 안내드립니다.';
+            ctaText.textContent = `${title} 기준 상세 조건은 상담으로 안내해드립니다.`;
 
             guideEmptyState.hidden = true;
             guideResult.hidden = false;
@@ -986,10 +945,11 @@
 
         function renderUnit(item) {
             unitTitle.textContent = `${item.dong}동 ${item.ho}호 · ${item.type}`;
-            unitDesc.textContent = `${item.dong}동 ${item.ho}호 기준 정상 조회 결과입니다.`;
+            unitDesc.innerHTML = `${item.dong}동 ${item.ho}호 기준<br>정상 조회 결과입니다.`;
 
             realCashValue.textContent = formatKrwMan(item.preMoveInCost);
-            realCashDesc.textContent = `${item.dong}동 ${item.ho}호 기준 입주 전까지 준비해야 하는 금액입니다.`;
+
+            realCashDesc.innerHTML = `${item.dong}동 ${item.ho}호 기준<br>입주 전까지 준비해야 하는 금액입니다.`;
 
             jeonseValue.innerHTML = `${formatKrwMan(item.jeonse)}<span class="guide-list__sub">10년간 거주 기준 금액</span>`;
             saleValue.innerHTML = `${formatKrwMan(item.salePrice)}<span class="guide-list__sub">10년 후 매입 결정 시 금액</span>`;
@@ -1000,9 +960,10 @@
 
             loanValue.textContent = formatKrwMan(item.loan);
             balanceValue.textContent = formatKrwMan(item.balance);
-            moveInValue.innerHTML = `${formatKrwMan(item.realMoveInCost)}<span class="guide-list__sub">현재 기준 실제 준비 금액</span>`;
+            moveInValue.innerHTML = `${formatKrwMan(item.realMoveInCost)}<span class="guide-list__sub">대출 제외 총 실투입 금액</span>`;
 
-            returnPolicyText.textContent = item.returnPolicy || '매입을 선택하지 않을 경우 반환 구조는 상담 시 안내드립니다.';
+            returnPolicyText.innerHTML = '매입을 선택하지 않을 경우 반환 구조는<br>상담 시 안내드립니다.';
+            ctaText.textContent = `${item.dong}동 ${item.ho}호 기준으로 전세가, 분양금액, 계약금 구조를 바로 상담받아보세요.`;
 
             guideEmptyState.hidden = true;
             guideResult.hidden = false;
@@ -1077,37 +1038,6 @@
             if (event.key === 'Enter') {
                 searchUnit();
             }
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const buttons = document.querySelectorAll(".js-head-toggle");
-            const panels = document.querySelectorAll(".header-drawer__panel");
-
-            function closeAll() {
-                panels.forEach(panel => panel.classList.remove("is-active"));
-            }
-
-            buttons.forEach(button => {
-                button.addEventListener("click", function () {
-                    const target = this.dataset.target;
-                    const panel = document.querySelector(`.header-drawer__panel[data-panel="${target}"]`);
-
-                    if (!panel) return;
-
-                    const opened = panel.classList.contains("is-active");
-                    closeAll();
-
-                    if (!opened) {
-                        panel.classList.add("is-active");
-                    }
-                });
-            });
-
-            document.addEventListener("click", function (e) {
-                if (e.target.closest(".header-nav") || e.target.closest(".header-drawer")) return;
-                closeAll();
-            });
         });
     </script>
 
